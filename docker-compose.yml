@@ -5,3 +5,5 @@ services:
         build: .
         ports:
           - '5001:5001'
+        environment:
+          TZ: America/Sao_Paulo
