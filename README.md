@@ -21,3 +21,9 @@ A `GET` to `localhost:5001/version` should output the weasyprint version (curren
 ### Fonts
 
 In order to make fonts available to weasyprint, simply copy them into `./fonts` and build the image.
+
+# Docker
+
+docker-compose up -d
+
+docker-compose down
