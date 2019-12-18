@@ -7,7 +7,7 @@ RUN apk --no-cache add msttcorefonts-installer fontconfig && \
 RUN apk --update --upgrade add bash cairo pango gdk-pixbuf py3-cffi py3-pillow py-lxml
 RUN apk --update --upgrade add gcc musl-dev jpeg-dev zlib-dev libffi-dev cairo-dev pango-dev gdk-pixbuf-dev
 
-RUN pip3 install weasyprint gunicorn gevent flask flask-cors
+RUN pip3 install weasyprint gunicorn flask flask-cors
 
 RUN mkdir /myapp
 
@@ -39,4 +39,4 @@ ADD ./wsgi.py /myapp
 RUN mkdir /root/.fonts
 # ADD ./fonts/* /root/.fonts/
 
-CMD gunicorn --worker-class gevent --log-level debug --bind 0.0.0.0:5001 wsgi:app
+CMD gunicorn --log-level debug --bind 0.0.0.0:5001 wsgi:app
