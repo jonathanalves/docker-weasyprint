@@ -39,4 +39,4 @@ ADD ./wsgi.py /myapp
 RUN mkdir /root/.fonts
 # ADD ./fonts/* /root/.fonts/
 
-CMD gunicorn --worker-class gevent --log-level debug --bind 0.0.0.0:5001 wsgi:app
+CMD gunicorn --bind 0.0.0.0:5001 wsgi:app
