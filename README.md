@@ -27,3 +27,9 @@ In order to make fonts available to weasyprint, simply copy them into `./fonts` 
 docker-compose up -d
 
 docker-compose down
+
+### Acessar bash
+
+docker exec -it <mycontainer> bash
+    
+python -m weasyprint.tools.navigator
