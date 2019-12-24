@@ -28,10 +28,10 @@ docker-compose up -d
 
 docker-compose down
 
-docker logs -f <mycontainer>
+docker logs -f [mycontainer]
 
 ### Acessar bash
 
-docker exec -it <mycontainer> bash
+docker exec -it [mycontainer] bash
     
 python -m weasyprint.tools.navigator
