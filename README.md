@@ -28,6 +28,8 @@ docker-compose up -d
 
 docker-compose down
 
+docker logs -f <mycontainer>
+
 ### Acessar bash
 
 docker exec -it <mycontainer> bash
