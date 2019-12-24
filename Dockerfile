@@ -41,4 +41,4 @@ ADD ./wsgi.py /myapp
 RUN mkdir /root/.fonts
 # ADD ./fonts/* /root/.fonts/
 
-CMD gunicorn --log-level debug --timeout 2000 --bind 0.0.0.0:5001 wsgi:app
+CMD gunicorn --log-level debug --timeout 2000 --workers 3 --bind 0.0.0.0:5001 wsgi:app
