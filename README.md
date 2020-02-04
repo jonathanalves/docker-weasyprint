@@ -35,3 +35,8 @@ docker logs -f [mycontainer]
 docker exec -it [mycontainer] bash
     
 python -m weasyprint.tools.navigator
+
+
+### limpar
+
+docker system prune -a
