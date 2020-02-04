@@ -24,7 +24,7 @@ In order to make fonts available to weasyprint, simply copy them into `./fonts` 
 
 # Docker
 
-docker-compose up -d
+docker-compose up -d --build
 
 docker-compose down
 
