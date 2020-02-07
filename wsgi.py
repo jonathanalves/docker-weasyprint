@@ -89,9 +89,8 @@ def countPages():
     html = HTML(string=request.data.decode('utf-8'))
     document = html.render()
     size = len(document.pages)
-    r = '{"paginas":' + str(size) +'}'
 
-    response = make_response(r)
+    response = make_response(str(size))
     response.headers['Content-Type'] = 'application/json'
     # response.headers['Content-Disposition'] = 'inline;filename=%s' % name
     # app.logger.info(' ==> POST  /pdf?filename=%s  ok' % name)
