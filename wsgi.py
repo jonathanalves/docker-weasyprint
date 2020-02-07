@@ -16,6 +16,10 @@ cors = CORS(app, resources={r"/*": {"origins": "*"}})
 def index():
     return 'ok'
 
+@app.route('/teste')
+def teste():
+    return 'teste'
+
 @app.route('/version')
 def version_index():
     return weasyprint.__version__
@@ -78,6 +82,20 @@ def multiple():
     app.logger.info(' ==> POST  /multiple?filename=%s  ok' % name)
     return response
 
+@app.route('/count-pages', methods=['POST'])
+def countPages():
+    name = request.args.get('filename', 'unnamed.pdf')
+    app.logger.info('POST  /pdf?filename=%s' % name)
+    html = HTML(string=request.data.decode('utf-8'))
+    document = html.render()
+    size = len(document.pages)
+    r = '{"paginas":' + str(size) +'}'
+
+    response = make_response(r)
+    response.headers['Content-Type'] = 'application/json'
+    # response.headers['Content-Disposition'] = 'inline;filename=%s' % name
+    # app.logger.info(' ==> POST  /pdf?filename=%s  ok' % name)
+    return response
 
 if __name__ == '__main__':
     app.run()
