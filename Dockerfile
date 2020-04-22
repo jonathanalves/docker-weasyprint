@@ -9,7 +9,7 @@ RUN apk --update --upgrade add gcc musl-dev jpeg-dev zlib-dev libffi-dev cairo-d
 
 RUN pip3 install --upgrade pip
 
-RUN pip install weasyprint gunicorn flask flask-cors
+RUN pip install weasyprint==0.49 gunicorn flask flask-cors
 
 RUN mkdir /myapp
 
