@@ -61,7 +61,7 @@ def generate():
     name = request.args.get('filename', 'unnamed.pdf')
     app.logger.info('POST  /pdf?filename=%s' % name)
     html = HTML(string=request.data.decode('utf-8'))
-    pdf = html.write_pdf()
+    pdf = html.write_pdf(None, None, 1, None, True)
     response = make_response(pdf)
     response.headers['Content-Type'] = 'application/pdf'
     response.headers['Content-Disposition'] = 'inline;filename=%s' % name
@@ -92,8 +92,6 @@ def countPages():
 
     response = make_response(str(size))
     response.headers['Content-Type'] = 'application/json'
-    # response.headers['Content-Disposition'] = 'inline;filename=%s' % name
-    # app.logger.info(' ==> POST  /pdf?filename=%s  ok' % name)
     return response
 
 if __name__ == '__main__':
