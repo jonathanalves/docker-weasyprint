@@ -3,8 +3,9 @@ FROM alpine:latest
 RUN apk --no-cache add msttcorefonts-installer fontconfig && \
     update-ms-fonts && \
     fc-cache -f
-    
-RUN apk --update --upgrade add bash cairo pango gdk-pixbuf py3-cffi py3-pillow py-lxml
+
+RUN apk --update --upgrade add py3-setuptools py3-cffi py3-pillow py3-pip
+RUN apk --update --upgrade add bash cairo pango gdk-pixbuf py-lxml
 RUN apk --update --upgrade add gcc musl-dev jpeg-dev zlib-dev libffi-dev cairo-dev pango-dev gdk-pixbuf-dev
 
 RUN pip3 install --upgrade pip
